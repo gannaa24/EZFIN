@@ -1,0 +1,17 @@
+
+.table-of-contents{
+    background-color: #1B2A41;
+    height: 100vh;
+}
+.logo-img{
+    width:40px;
+}
+.select{
+transition: all 0.2s ease;
+}
+.select:hover{
+background: rgba(255, 255, 255, 0.4);
+border-radius: 10px;
+font-weight: 600;
+
+}

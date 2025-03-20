@@ -1,0 +1,101 @@
+.bg-nav{
+    background-color: #1B2A41;
+}
+
+.header-img {
+    background-color: rgba(30, 58, 138, 0.3);
+    width: 500px;
+    height: 500px;  
+}
+
+.child-img{
+    background-image:linear-gradient(rgba(59, 130, 246, 0.3),rgba(228, 239, 255, 0.7)) ;
+    width: 360px;
+    height: 360px;  
+}
+
+.my-mt{
+    margin-top: 120px;
+}
+
+.my-clr{
+    color: #0E1534;
+}
+
+.btn-clr{
+    background-color: #000066;
+}
+
+.btn-pad{
+    padding: 10px 100px;
+}
+
+.bg-sec{
+background-color: #BDBDBD;
+}
+.bx-shad{
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); 
+}
+
+.wid-img{
+    width: 80px;
+}
+
+.line{
+    width: 5%;
+    height: 4px; 
+    background-color:#000066;
+}
+
+.content{
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+.properties{
+    font-size: 20px;
+}
+.my-para::before{
+    content:"";
+    width: 5%;
+    height: 4px; 
+    background-color:#000066;
+    position: absolute;
+}
+button:hover{
+    background-color: rgba(0, 0, 102,0.8);
+}
+.feature{
+    height: 350px;
+    transition: all 0.3s ease;
+}
+.feature:hover{
+    border: #000066 4px solid;
+    transform: scale(103%);
+}
+.price{
+    height: 130px;
+    transition: all 0.3s ease;
+}
+.price:hover{
+    border: #000066 4px solid;
+    transform: scale(103%);  
+}
+.icon{
+    background-color: #BDBDBD;
+    color: #1B2A41;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    transition: all 0.2s ease;
+}
+.icon:hover{
+    background-color: #1B2A41;
+    color: #BDBDBD;
+}
+.icon:hover .main-color{
+    color: #BDBDBD;
+}
+
+.main-color{
+    color: #1B2A41;
+    transition: all 0.2s ease;
+}
