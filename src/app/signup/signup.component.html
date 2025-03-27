@@ -1,6 +1,6 @@
-<div class="d-flex justify-content-center align-items-center m-5">
-    <div class="container myborder w-75 rounded-5 p-5 d-flex flex-column justify-content-center align-items-center">
-        <div class="container d-flex justify-content-between">
+<div class="row justify-content-center align-items-center my-5">
+    <div class="container myborder w-75 rounded-5 p-0 p-lg-5 d-flex flex-wrap flex-column justify-content-center align-items-center">
+        <div class="container d-flex flex-column flex-lg-row justify-content-between py-3">
             <p class="fw-bolder text-capitalize">create new account</p>
             <div class="">
                 <span class="mx-1">Already have an account?</span>
@@ -11,19 +11,58 @@
             <img src="imgs/logo-blue.png" class="the-logo" alt="">
             EZFIN</h1>
         <p>Your All-in-One Finance Tracker</p>
-        <div class="content d-flex flex-column flex-wrap w-50">
-            <input type="text" class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="First Name">
-            <input type="text" class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="last Name">
-            <input type="tel" class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="Phone Number">
-            <input type="email" class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="E-mail">
-            <input type="text" class="w-100 py-2 px-1 rounded-3 my-3" placeholder="Password">
-            <input type="text" class="w-100 py-2 px-1 rounded-3 my-3" placeholder="Re-enter password">
+        <form [formGroup]="signupAuth" class="content row flex-column w-75 justify-content-center align-items-center ">
+            <div class="content row flex-column w-75 ">
+                <input type="text" formControlName="name" class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="Your Name">
+                @let authName=signupAuth.get('name');
+                @if (authName?.getError('required')&&authName?.touched) {
+                    <p class="text-capitalize text-danger">*input Required</p>
+                }
+                @if (authName?.getError('minlength')&&authName?.touched) {
+                    <p class="text-capitalize text-danger">*you have to enter at least 2 characters</p>
+                }
+                @if (authName?.getError('maxlength')&&authName?.touched) {
+                    <p class="text-capitalize text-danger">*you have to enter max 30 characters</p>
+                }
+                <input type="tel" formControlName="phone" class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="Phone Number">
+                @let authPhone=signupAuth.get('phone');
+                @if (authPhone?.getError('required')&&authPhone?.touched) {
+                    <p class="text-capitalize text-danger">*you must enter your phone number</p>
+                }
+                @if (authPhone?.getError('pattern')&&authPhone?.touched) {
+                    <p class="text-capitalize text-danger">*you must enter valid phone number</p>
+                }
+                <input type="email"  formControlName="email"class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="E-mail">
+                @let authEmail=signupAuth.get('email');
+                @if (authEmail?.getError('required')&&authEmail?.touched) {
+                    <p class="text-capitalize text-danger">*you must enter your E-mail</p>
+                }
+                @if (authEmail?.getError('email')&&authEmail?.touched) {
+                    <p class="text-capitalize text-danger">*you must enter a valid E-mail</p>
+                }
+                <input type="password" formControlName="password" class="w-100 py-2 px-1 rounded-3 my-3" placeholder="Password">
+                @let authPass=signupAuth.get('password');
+                @if (authPass?.getError('required')&&authPass?.touched) {
+                    <p class="text-capitalize text-danger">*input required</p>
+                }
+                @if (authPass?.getError('pattern')&&authPass?.touched) {
+                    <p class="text-capitalize text-danger">*At least one upper case English letter</p>
+                    <p class="text-capitalize text-danger">*At least one lower case English letter</p>
+                    <p class="text-capitalize text-danger">*At least one digit</p>
+                    <p class="text-capitalize text-danger">*Inclusion of at least one special character, e.g., ! # ?</p>
+                    <p class="text-capitalize text-danger">*Minimum eight in length</p>
+                }
+                <input type="password" formControlName="rePassword" class="w-100 py-2 px-1 rounded-3 my-3" placeholder="Re-enter password">
+                @if (signupAuth.getError('mismatch')) {
+                    <p class="text-capitalize text-danger">*password does not match</p>
+                }
+                
+            </div>
             
-        </div>
-        
-        <div class="w-25 my-4">
-            <button class="w-100 px-5 py-2 rounded-4 border-0 " routerLink='/login' routerLinkActive="router-link-active">sign up</button>
-        </div>
+            <div class="w-25 my-4">
+                <button class="w-100 px-lg-5 py-2 rounded-4 border-0 " routerLink='/login' routerLinkActive="router-link-active">submit</button>
+            </div>
+        </form>
     
     </div>
 </div>

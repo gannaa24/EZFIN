@@ -1,21 +1,39 @@
-<div class="d-flex justify-content-center align-items-center m-5">
-    <div class="container w-75 rounded-5 p-5 d-flex flex-column justify-content-center align-items-center">
+<div class=" row justify-content-center align-items-center my-5">
+    <div class="container myborder w-75 rounded-5 p-0 p-lg-5 d-flex flex-column justify-content-center align-items-center">
         <h1 class="py-3">
             <img src="imgs/logo-blue.png" class="the-logo" alt="">EZFIN</h1>
         <p>Your All-in-One Finance Tracker</p>
-        <div class="content d-flex flex-column flex-wrap w-50">
-            <input type="email" class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="E-mail">
-            <!-- @if (emailRegex!) {
-                <span class="text-danger">*incorrect email</span>
-            } -->
-            <input type="text" class="w-100 py-2 px-1 rounded-3 my-3" placeholder="Password">
+       <form [formGroup]="signupAuth" class="content row flex-column w-75 justify-content-center align-items-center ">
+        <div class="content d-flex flex-column w-75 ">
+            <input type="email" formControlName="email" class="w-100 py-2 px-1 rounded-3 my-3 " placeholder="E-mail">
+            @let authEmail=signupAuth.get('email');
+                @if (authEmail?.getError('required')&&authEmail?.touched) {
+                    <p class="text-capitalize text-danger">*you must enter your E-mail</p>
+                }
+                @if (authEmail?.getError('email')&&authEmail?.touched) {
+                    <p class="text-capitalize text-danger">*you must enter a valid E-mail</p>
+                }
+            <input type="password" formControlName="password" class="w-100 py-2 px-1 rounded-3 my-3" placeholder="Password">
+            @let authPass=signupAuth.get('password');
+            @if (authPass?.getError('required')&&authPass?.touched) {
+                <p class="text-capitalize text-danger">*input required</p>
+            }
+            @if (authPass?.getError('pattern')&&authPass?.touched) {
+                <p class="text-capitalize text-danger">*At least one upper case English letter</p>
+                <p class="text-capitalize text-danger">*At least one lower case English letter</p>
+                <p class="text-capitalize text-danger">*At least one digit</p>
+                <p class="text-capitalize text-danger">*Inclusion of at least one special character, e.g., ! # ?</p>
+                <p class="text-capitalize text-danger">*Minimum eight in length</p>
+            }
+            
             <div class="align-self-end">
                 <a class="" [routerLink]="['/forgotpass']" routerLinkActive="router-link-active" >Forgot Password?</a>
             </div>
         </div>
+       </form>
         
         <div class="w-25 my-4">
-            <button class="w-100 px-5 py-2 rounded-4 border-0" [routerLink]="['/dashboard']">Login</button>
+            <button class="w-100 px-lg-5 py-2 rounded-4 border-0 " [routerLink]="['/dashboard']">Login</button>
         </div>
     
     </div>
