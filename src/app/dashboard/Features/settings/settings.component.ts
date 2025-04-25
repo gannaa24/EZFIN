@@ -7,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrl: './settings.component.css'
 })
 export class SettingsComponent {
-
+  change:boolean = false;
+  adjust:boolean = false;
+  
+  changePass() {
+    this.change = true;
+    console.log('adjustGoal', this.adjust);
+  }
+  cancelAdjust() {
+    this.change= false;
+    console.log('adjustGoal', this.adjust);
+  }
+  
 }

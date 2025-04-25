@@ -1,0 +1,18 @@
+.my-btn{
+    background-color: #000066;
+    color: #fff;
+}
+.transaction{
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    height: 110vh;
+  
+  }
+  .buttnClr{
+    background-color: #000066;
+  }

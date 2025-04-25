@@ -1,1 +1,238 @@
-<p>goals works!</p>
+<header>
+    <div>
+        <div class="container">
+            <div class="d-flex justify-content-end align-items-center p-4">
+                <div class="search-container pe-2">
+                    <input type="text"  placeholder="Search..." class="search-input">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                  </div>
+                  
+                  <div>
+                     
+                    <button class="btn buttnClr text-white fs-5 text-capitalize" (click)="addTransaction()">Add New goal <i class="fa-solid fa-circle-plus"></i></button>
+                  </div>
+              
+               </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+               <div class=" bg-white rounded-2 py-3 ">
+                <div class=" d-flex justify-content-between border-bottom border-black">
+                    <p class="ps-3 fw-bold">Saving Goals</p>
+                    <div class="dropdown pe-2" ng-controller="DateDropdownController">
+                        <button 
+                          class="btn btn-secondary dropdown-toggle fw-light" 
+                          type="button" 
+                          id="dropdownMenuButton" 
+                          data-bs-toggle="dropdown" 
+                          aria-expanded="false">
+                          Select Date
+                        </button>
+                        <ul 
+                          class="dropdown-menu" 
+                          aria-labelledby="dropdownMenuButton">
+                           @for (date of dates; track $index) {
+                            <li>
+                                <p 
+                                  class="dropdown-item" 
+                                  href="#" 
+                                  (click)="selectDate(date)">
+                                  {{ date }}
+                                </p>
+                              </li>
+                           }
+                         
+                        </ul>
+                        <p class="mt-3">
+                            Selected Date: <strong>{{ selectedDate }}</strong>
+                          </p>
+                      </div>
+                      
+                      
+                      
+
+                </div>
+
+                <div class="d-flex justify-content-between ps-3 pt-4">
+                    <div class="d-flex ps-3">
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_323_463)">
+                            <path d="M10.7546 15.3781C9.45485 15.0003 8.31293 14.2107 7.50049 13.1282C6.68805 12.0456 6.249 10.7285 6.24935 9.37502V1.04169H18.7493V10.4167M6.24935 3.12502H1.04102V7.29169C1.04102 9.90523 2.90664 11.4584 5.20768 11.4584H6.24935M20.8681 11.3386C22.6473 10.9271 23.9577 9.48231 23.9577 7.29169V3.12502H18.7493M10.416 19.7917H5.20768V23.9584H17.1868M17.1868 23.9584C15.3911 23.9584 13.6689 23.245 12.3991 21.9752C11.1294 20.7054 10.416 18.9833 10.416 17.1875C10.416 15.3918 11.1294 13.6696 12.3991 12.3998C13.6689 11.13 15.3911 10.4167 17.1868 10.4167C18.9826 10.4167 20.7048 11.13 21.9745 12.3998C23.2443 13.6696 23.9577 15.3918 23.9577 17.1875C23.9577 18.9833 23.2443 20.7054 21.9745 21.9752C20.7048 23.245 18.9826 23.9584 17.1868 23.9584ZM20.8327 14.5834L16.1452 19.2709L13.541 16.6667M10.6306 16.0667C9.93976 16.4133 9.35897 16.9453 8.95316 17.6032C8.54735 18.261 8.33251 19.0188 8.33268 19.7917" stroke="black" stroke-width="2.08333"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_323_463">
+                            <rect width="25" height="25" fill="white"/>
+                            </clipPath>
+                            </defs>
+                            </svg>
+                            <h6 class="ps-1">Target Achieved</h6>   
+                    </div>    
+                    <div class="d-flex pe-4">
+                        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.3089 12.3074C10.8583 12.7557 10.6039 13.3644 10.6016 14C10.6016 14.6365 10.8544 15.247 11.3045 15.6971C11.7546 16.1471 12.365 16.4 13.0016 16.4C13.6372 16.3977 14.2459 16.1433 14.6942 15.6926" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13.0008 6.79999C11.5768 6.79999 10.1847 7.22226 9.00068 8.01341C7.81664 8.80455 6.8938 9.92904 6.34885 11.2447C5.8039 12.5603 5.66132 14.008 5.93913 15.4046C6.21694 16.8013 6.90268 18.0842 7.90962 19.0912C8.91655 20.0981 10.1995 20.7838 11.5961 21.0616C12.9928 21.3395 14.4405 21.1969 15.7561 20.6519C17.0717 20.107 18.1962 19.1841 18.9874 18.0001C19.7785 16.8161 20.2008 15.424 20.2008 14" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13 2C10.6266 2 8.30655 2.70379 6.33316 4.02236C4.35977 5.34094 2.8217 7.21509 1.91345 9.4078C1.0052 11.6005 0.767559 14.0133 1.23058 16.3411C1.6936 18.6689 2.83649 20.8071 4.51472 22.4853C6.19295 24.1635 8.33115 25.3064 10.6589 25.7694C12.9867 26.2324 15.3995 25.9948 17.5922 25.0866C19.7849 24.1783 21.6591 22.6402 22.9776 20.6668C24.2962 18.6935 25 16.3734 25 14M17.4526 9.54863L14.2 12.8" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M24.2928 6.22399L20.2002 6.79999L20.7762 2.70736C20.7804 2.65982 20.7704 2.6121 20.7473 2.5703C20.7243 2.5285 20.6893 2.49451 20.6469 2.47268C20.6045 2.45086 20.5565 2.44217 20.5091 2.44775C20.4617 2.45333 20.417 2.47291 20.3808 2.50399L17.6675 5.20336C17.3889 5.48406 17.1839 5.82929 17.0708 6.20833C16.9578 6.58738 16.9402 6.98849 17.0195 7.37599L17.4515 9.54862L19.6242 9.97936C20.0117 10.0587 20.4128 10.0411 20.7918 9.92808C21.1709 9.81503 21.5161 9.61004 21.7968 9.33136L24.4949 6.61936C24.5261 6.58306 24.5457 6.53828 24.5513 6.49074C24.5568 6.44321 24.548 6.3951 24.526 6.3526C24.504 6.3101 24.4698 6.27515 24.4278 6.25223C24.3858 6.22931 24.3379 6.21948 24.2903 6.22399" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <h6 class="ps-1">This month Target</h6>   
+
+                    </div>                 
+                </div>
+
+                <div class="d-flex justify-content-between ps-3 py-3">
+                    <p class="text-secondary  ps-5">$12,000</p>
+                    <p class="text-secondary pe-5">$20,000</p>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button class="btn buttnClr rounded-pill px-5 text-white " (click)="adjustGoal()"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 2H3.33333C2.97971 2 2.64057 2.14048 2.39052 2.39052C2.14048 2.64057 2 2.97971 2 3.33333V12.6667C2 13.0203 2.14048 13.3594 2.39052 13.6095C2.64057 13.8595 2.97971 14 3.33333 14H12.6667C13.0203 14 13.3594 13.8595 13.6095 13.6095C13.8595 13.3594 14 13.0203 14 12.6667V8" stroke="#E6E6E6" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.2494 1.75003C12.5146 1.48481 12.8743 1.33582 13.2494 1.33582C13.6245 1.33582 13.9842 1.48481 14.2494 1.75003C14.5146 2.01525 14.6636 2.37496 14.6636 2.75003C14.6636 3.1251 14.5146 3.48481 14.2494 3.75003L8.24075 9.75936C8.08244 9.91753 7.88688 10.0333 7.67208 10.096L5.75674 10.656C5.69938 10.6728 5.63857 10.6738 5.58068 10.6589C5.5228 10.6441 5.46996 10.614 5.42771 10.5717C5.38546 10.5295 5.35534 10.4766 5.34051 10.4188C5.32568 10.3609 5.32668 10.3001 5.34341 10.2427L5.90341 8.32736C5.96643 8.11273 6.08243 7.9174 6.24075 7.75936L12.2494 1.75003Z" stroke="#E6E6E6" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Adjust Goal</button>
+                </div>
+                @if (adjust==true) {
+                    <div class="transaction p-5">
+                        <div class="cotainer m-auto">
+                          <div class="container m-auto bg-white rounded-3 shadow-sm p-5 mt-5">
+                            <div class="border-bottom py-2 mb-4">
+                              <p class="fw-bolder text-capitalize">Add amount To goal</p>
+                              <input type="number" class="form-control" placeholder="Enter amount" aria-label="Amount (to the nearest dollar)">
+                            </div>
+                            <div class="border-bottom py-2 mb-4">
+                              <p class="fw-bolder">Description</p>
+                              <input type="text" class="form-control" placeholder="Enter Discription" aria-label="Amount (to the nearest dollar)">
+                            </div>
+                            <div class=" d-flex justify-content-center mt-4">
+                              <button class="btn bg-secondary text-white border-0 rounded-4 px-3 py-2 me-2" (click)="cancelAdjust()" >Cancel</button>
+                              <button class="btn buttnClr text-white border-0 rounded-4 px-3 py-2" >Adjust</button>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                }
+               </div>
+               <div class="py-4">
+                <h5 class="text-capitalize text-secondary">goals with details</h5>
+                <div class="w-75 m-auto pt-3">
+                    <div class=" row bg-white rounded-3 my-3">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <div class=" bg-body-secondary p-3 rounded-3">
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.66667 8L4.66667 2H19.3333L21.3333 8M19.3333 14.6667C18.8029 14.6667 18.2942 14.456 17.9191 14.0809C17.544 13.7058 17.3333 13.1971 17.3333 12.6667C17.3333 12.1362 17.544 11.6275 17.9191 11.2525C18.2942 10.8774 18.8029 10.6667 19.3333 10.6667C19.8638 10.6667 20.3725 10.8774 20.7475 11.2525C21.1226 11.6275 21.3333 12.1362 21.3333 12.6667C21.3333 13.1971 21.1226 13.7058 20.7475 14.0809C20.3725 14.456 19.8638 14.6667 19.3333 14.6667ZM4.66667 14.6667C4.13623 14.6667 3.62753 14.456 3.25245 14.0809C2.87738 13.7058 2.66667 13.1971 2.66667 12.6667C2.66667 12.1362 2.87738 11.6275 3.25245 11.2525C3.62753 10.8774 4.13623 10.6667 4.66667 10.6667C5.1971 10.6667 5.70581 10.8774 6.08088 11.2525C6.45595 11.6275 6.66667 12.1362 6.66667 12.6667C6.66667 13.1971 6.45595 13.7058 6.08088 14.0809C5.70581 14.456 5.1971 14.6667 4.66667 14.6667ZM21.2267 1.33333C20.96 0.56 20.2133 0 19.3333 0H4.66667C3.78667 0 3.04 0.56 2.77333 1.33333L0 9.33333V20C0 20.3536 0.140476 20.6928 0.390524 20.9428C0.640573 21.1929 0.979711 21.3333 1.33333 21.3333H2.66667C3.02029 21.3333 3.35943 21.1929 3.60948 20.9428C3.85952 20.6928 4 20.3536 4 20V18.6667H20V20C20 20.3536 20.1405 20.6928 20.3905 20.9428C20.6406 21.1929 20.9797 21.3333 21.3333 21.3333H22.6667C23.0203 21.3333 23.3594 21.1929 23.6095 20.9428C23.8595 20.6928 24 20.3536 24 20V9.33333L21.2267 1.33333Z" fill="black"/>
+                                    </svg>
+                                    
+                                    
+                            </div>
+                        </div>
+                        <div class=" col-5 d-flex flex-column justify-content-center align-items-center">
+                            <p class="text-capitalize fw-semibold pt-3">Car</p>
+                           
+                        </div>
+                        <div class=" col-4 d-flex justify-content-center align-items-center flex-column py-2 ">
+                                <p class="fw-semibold text-capitalize">Goal</p>
+                                <p>3000$</p>
+                            
+                        </div>
+                    </div>
+                    <div class=" row bg-white rounded-3 my-3">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <div class=" bg-body-secondary p-3 rounded-3">
+                                <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 8.00001L2 8.66668C3.08667 3.65734 6.24267 2.00468 9.33333 2.00001C11.3313 1.99668 13.3013 2.68401 14.6667 3.33335C16.032 2.68401 18 2.00001 20 2.00001C23.074 2.00001 26.2467 3.65734 27.3333 8.66668L23.3333 8.00001C23.706 9.40001 24.5253 11.8613 23.3333 14C21.3467 12.218 16.7533 9.52734 14.6667 8.00001C12.58 9.52734 7.98667 12.218 6 14C4.808 11.862 5.62733 9.40001 6 8.00001Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14.6667 8.00073C14.1634 10.5934 13.4594 17.0227 14.6667 22.0007" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6.66602 26.0007H22.666C19.4747 22.9441 17.9993 22.0041 14.666 22.0007C11.3327 21.9974 7.92735 24.2554 6.66602 26.0007Z" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    
+                                    
+                            </div>
+                        </div>
+                        <div class=" col-5 d-flex flex-column justify-content-center align-items-center">
+                            <p class="text-capitalize fw-semibold pt-3">vacation</p>
+                            
+                        </div>
+                        <div class=" col-4 d-flex justify-content-center align-items-center flex-column py-2">
+                            <p class="fw-semibold text-capitalize">Goal</p>
+                            <p>2000$</p>
+                        </div>
+                    </div>
+                    <div class=" row bg-white rounded-3 my-3">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <div class=" bg-body-secondary p-3 rounded-3">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_285_522)">
+                                    <path d="M22 12.6667C21.9123 12.6672 21.8253 12.6504 21.7441 12.6172C21.6629 12.584 21.589 12.5351 21.5267 12.4733L12 2.94001L2.47335 12.4733C2.34582 12.5826 2.18177 12.6396 2.01398 12.6331C1.8462 12.6267 1.68704 12.5571 1.56831 12.4384C1.44958 12.3197 1.38002 12.1605 1.37354 11.9927C1.36706 11.8249 1.42413 11.6609 1.53335 11.5333L11.5334 1.53334C11.6583 1.40917 11.8272 1.33948 12.0034 1.33948C12.1795 1.33948 12.3484 1.40917 12.4734 1.53334L22.4734 11.5333C22.5651 11.6269 22.6272 11.7455 22.6519 11.8742C22.6767 12.0029 22.6629 12.136 22.6124 12.2569C22.5619 12.3779 22.4769 12.4812 22.368 12.5541C22.2591 12.627 22.1311 12.6661 22 12.6667Z" fill="black"/>
+                                    <path d="M12 5.19336L4 13.22V21.3334C4 21.687 4.14048 22.0261 4.39052 22.2762C4.64057 22.5262 4.97971 22.6667 5.33333 22.6667H10V16H14V22.6667H18.6667C19.0203 22.6667 19.3594 22.5262 19.6095 22.2762C19.8595 22.0261 20 21.687 20 21.3334V13.1734L12 5.19336Z" fill="black"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_285_522">
+                                    <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                    </svg>
+                                    
+                            </div>
+                        </div>
+                        <div class=" col-5 d-flex flex-column justify-content-center align-items-center">
+                            <p class="text-capitalize fw-semibold pt-3">housing</p>
+                        </div>
+                        <div class=" col-4 d-flex justify-content-center align-items-center  flex-column py-2">
+                            <p class="fw-semibold text-capitalize">Goal</p>
+                            <p>100000$</p>
+                        </div>
+                    </div>
+                </div>
+               </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="bg-white rounded-2 py-3 px-4">
+                <div>
+                    <p>You're Almost There!</p>
+                    <canvas baseChart
+                        [labels]="doughnutChartLabels"
+                        [datasets]="doughnutChartDatasets"
+                        [options]="doughnutChartOptions"
+                        [legend]="true"
+                        [type]="'doughnut'" >
+                    </canvas>
+
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        @if (add==true) {
+      
+          <div class="transaction p-5">
+            <div class="cotainer m-auto">
+              <div class="container m-auto bg-white rounded-3 shadow-sm p-5 mt-5">
+                <div class="border-bottom py-2 mb-4">
+                  <p class="fw-bolder text-capitalize">Add New Goal for this month</p>
+                  <input type="number" class="form-control" placeholder="Enter amount" aria-label="Amount (to the nearest dollar)">
+                </div>
+                <div class="border-bottom py-2 mb-4">
+                  <p class="fw-bolder">Description</p>
+                  <input type="text" class="form-control" placeholder="Enter Discription" aria-label="Amount (to the nearest dollar)">
+                </div>
+                <div class="mt-3">
+                  <label for="date" class="form-label">Due Date</label>
+                  <input type="date" class="form-control" id="date" placeholder="Enter date">
+                </div>
+                <div class=" d-flex justify-content-center mt-4">
+                  <button class="btn bg-secondary text-white border-0 rounded-4 px-3 py-2 me-2"(click)="cancelTransaction()" >Cancel</button>
+                  <button class="btn buttnClr text-white border-0 rounded-4 px-3 py-2" >Add</button>
+                </div>
+                </div>
+              </div>
+            </div>
+        }
+      </div> 
+</section>
+

@@ -4,3 +4,11 @@
 .fixed-h{
    height: 13.125rem;
 }
+.fixed-h2{
+    height: 21.125rem;
+}
+.dashboard-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+  }
