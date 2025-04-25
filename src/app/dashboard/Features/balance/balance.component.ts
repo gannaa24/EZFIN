@@ -8,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class BalanceComponent {
 
+
+add:boolean = false;
+expenseDate:boolean = false;
+  
+  addTransaction() {
+    this.add = true;
+    console.log('addTransaction', this.add);
+    
+  }
+  cancelTransaction() {
+    this.add = false;
+  }
 }
