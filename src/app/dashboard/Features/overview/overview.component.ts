@@ -11,6 +11,29 @@ import { BaseChartDirective } from 'ng2-charts';
 export class OverviewComponent {
 
   
+  today: string = '';
+
+  ngOnInit(): void {
+    this.updateDate();
+
+    // Optional: auto-update every minute
+    setInterval(() => {
+      this.updateDate();
+    }, 60000); // 60000 ms = 1 minute
+  }
+
+  updateDate(): void {
+    const now = new Date();
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    this.today = now.toLocaleDateString(undefined, options);
+  }
+
+
+
+
+
+
+
   title = 'ng2-charts-demo';
 
   public barChartLegend = true;

@@ -24,6 +24,7 @@ export const routes: Routes = [
         {path:'goals',component:GoalsComponent},
         {path:'transactions',component:TransactionsComponent},
         {path:'settings',component:SettingsComponent},
+        {path:'signup',component:SignupComponent,title:'signup'},
         {path:'',component:OverviewComponent},
     ]
     },
