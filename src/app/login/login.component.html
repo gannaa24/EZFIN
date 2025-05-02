@@ -33,8 +33,12 @@
        </form>
         
         <div class="w-25 my-4">
-            <button class="w-100 px-lg-5 py-2 rounded-4 border-0 " [routerLink]="['/dashboard']">Login</button>
+            <button class="w-100 px-lg-5 py-2 rounded-4 border-0 " (click)="checkData()">Login</button>
         </div>
+        @if(errMsg){
+            <p class="text-capitalize text-danger">*Invalid email or password</p>
+
+        }
     
     </div>
 </div>

@@ -96,7 +96,7 @@
                 </td>
                     <td class="text-center text-secondary py-4"> 20 Mar ,2025</td>
                     <td class="text-center fw-bold py-4">Revenue</td>
-                    <td class="text-center fw-bold py-4">$160.00</td>
+                    <td class="text-center fw-bold py-4">$3000</td>
                   </tr>
 
                   <tr class="border-bottom border-black rounded">
@@ -150,6 +150,62 @@
                     <td class="text-center fw-bold py-4">Savings</td>
                     <td class="text-center fw-bold py-4">$160.00</td>
                   </tr>
+                  @for (item of revenueTransactions; track $index) {
+                    <tr class="border-bottom border-black rounded">
+                      <td class="py-4">
+                          <div class="d-flex align-items-center justify-content-center">
+                              <i class="fa-solid fa-umbrella-beach bg-body-secondary border rounded p-2  ms-3 me-1"></i>
+                              <span class="fw-bold">{{revenueTransactions[$index].description}}</span>
+  
+                      </div>
+                  </td>
+                      <td class="text-center text-secondary py-4"> 20 Mar ,2025</td>
+                      <td class="text-center fw-bold py-4">{{ revenueTransactions[$index].type }}</td>
+                      <td class="text-center fw-bold py-4">${{ revenueTransactions[$index].amount }}</td>
+                    </tr>
+                  }
+                  @for (item of capitalTransactions; track $index) {
+                    <tr class="border-bottom border-black rounded">
+                      <td class="py-4">
+                          <div class="d-flex align-items-center justify-content-center">
+                              <i class="fa-solid fa-umbrella-beach bg-body-secondary border rounded p-2  ms-3 me-1"></i>
+                              <span class="fw-bold">{{capitalTransactions[$index].description}}</span>
+  
+                      </div>
+                  </td>
+                      <td class="text-center text-secondary py-4"> 20 Mar ,2025</td>
+                      <td class="text-center fw-bold py-4">{{ capitalTransactions[$index].type }}</td>
+                      <td class="text-center fw-bold py-4">${{ capitalTransactions[$index].amount }}</td>
+                    </tr>
+                  }
+                  @for (item of expensesTransactions; track $index) {
+                    <tr class="border-bottom border-black rounded">
+                      <td class="py-4">
+                          <div class="d-flex align-items-center justify-content-center">
+                              <i class="fa-solid fa-umbrella-beach bg-body-secondary border rounded p-2  ms-3 me-1"></i>
+                              <span class="fw-bold">{{expensesTransactions[$index].description}}</span>
+  
+                      </div>
+                  </td>
+                      <td class="text-center text-secondary py-4"> 20 Mar ,2025</td>
+                      <td class="text-center fw-bold py-4">{{ expensesTransactions[$index].type }}</td>
+                      <td class="text-center fw-bold py-4">${{ expensesTransactions[$index].amount }}</td>
+                    </tr>
+                  }
+                  @for (item of savingsTransactions; track $index) {
+                    <tr class="border-bottom border-black rounded">
+                      <td class="py-4">
+                          <div class="d-flex align-items-center justify-content-center">
+                              <i class="fa-solid fa-umbrella-beach bg-body-secondary border rounded p-2  ms-3 me-1"></i>
+                              <span class="fw-bold">{{savingsTransactions[$index].description}}</span>
+  
+                      </div>
+                  </td>
+                      <td class="text-center text-secondary py-4"> 20 Mar ,2025</td>
+                      <td class="text-center fw-bold py-4">{{ savingsTransactions[$index].type }}</td>
+                      <td class="text-center fw-bold py-4">${{ savingsTransactions[$index].amount }}</td>
+                    </tr>
+                  }
                   
                 </tbody>
               </table>
@@ -199,6 +255,20 @@
                     <td class="text-center fw-bold py-4">Revenue</td>
                     <td class="text-center fw-bold py-4">$160.00</td>
                   </tr>
+                  @for (item of revenueTransactions; track $index) {
+                    <tr class="border-bottom border-black rounded">
+                      <td class="py-4">
+                          <div class="d-flex align-items-center justify-content-center">
+                              <i class="fa-solid fa-umbrella-beach bg-body-secondary border rounded p-2  ms-3 me-1"></i>
+                              <span class="fw-bold">{{revenueTransactions[$index].description}}</span>
+  
+                      </div>
+                  </td>
+                      <td class="text-center text-secondary py-4"> 20 Mar ,2025</td>
+                      <td class="text-center fw-bold py-4">{{ revenueTransactions[$index].type }}</td>
+                      <td class="text-center fw-bold py-4">${{ revenueTransactions[$index].amount }}</td>
+                    </tr>
+                  }
 
                 
                   
@@ -248,6 +318,20 @@
                     <td class="text-center fw-bold py-4">Expenses</td>
                     <td class="text-center fw-bold py-4">$160.00</td>
                   </tr>
+                  @for (item of expensesTransactions; track $index) {
+                    <tr class="border-bottom border-black rounded">
+                      <td class="py-4">
+                          <div class="d-flex align-items-center justify-content-center">
+                              <i class="fa-solid fa-umbrella-beach bg-body-secondary border rounded p-2  ms-3 me-1"></i>
+                              <span class="fw-bold">{{expensesTransactions[$index].description}}</span>
+  
+                      </div>
+                  </td>
+                      <td class="text-center text-secondary py-4"> 20 Mar ,2025</td>
+                      <td class="text-center fw-bold py-4">{{ expensesTransactions[$index].type }}</td>
+                      <td class="text-center fw-bold py-4">${{ expensesTransactions[$index].amount }}</td>
+                    </tr>
+                  }
 
                  
 
@@ -285,6 +369,20 @@
                     <td class="text-center fw-bold py-4">Savings</td>
                     <td class="text-center fw-bold py-4">$160.00</td>
                   </tr>
+                  @for (item of savingsTransactions; track $index) {
+                    <tr class="border-bottom border-black rounded">
+                      <td class="py-4">
+                          <div class="d-flex align-items-center justify-content-center">
+                              <i class="fa-solid fa-umbrella-beach bg-body-secondary border rounded p-2  ms-3 me-1"></i>
+                              <span class="fw-bold">{{savingsTransactions[$index].description}}</span>
+  
+                      </div>
+                  </td>
+                      <td class="text-center text-secondary py-4"> 20 Mar ,2025</td>
+                      <td class="text-center fw-bold py-4">{{ savingsTransactions[$index].type }}</td>
+                      <td class="text-center fw-bold py-4">${{ savingsTransactions[$index].amount }}</td>
+                    </tr>
+                  }
                   
                 </tbody>
               </table>
@@ -299,43 +397,43 @@
             <div class="container m-auto bg-white rounded-3 shadow-sm p-5 mt-5">
               <div class="border-bottom py-2 mb-4">
                 <p class="fw-bolder">Add Amount</p>
-                <input type="number" class="form-control" placeholder="Enter amount" aria-label="Amount (to the nearest dollar)">
+                <input type="number" class="form-control" placeholder="Enter amount" aria-label="Amount (to the nearest dollar)" [(ngModel)]="amount">
               </div>
               <div class="border-bottom py-2 mb-4">
                 <p class="fw-bolder">Description</p>
-                <input type="text" class="form-control" placeholder="Enter Discription" aria-label="Amount (to the nearest dollar)">
+                <input type="text" class="form-control" placeholder="Enter Discription" aria-label="Amount (to the nearest dollar)" [(ngModel)]="description">
               </div>
               <div class="">
                 <form>
                   <label class="fs-5 text-capitalize">
-                    <input type="radio" name="option" value="option1" class="me-2" (click)="cancelExpenses()">
+                    <input type="radio" name="option" value="capital" class="me-2" (click)="cancelExpenses()" [(ngModel)]="selectedOption" ngModel >
                     capital
                   </label>
                   <br>
                   <label class="fs-5 text-capitalize">
-                    <input type="radio" name="option" value="option2" class="me-2" (click)="cancelExpenses()">
+                    <input type="radio" name="option" value="revenue" class="me-2" (click)="cancelExpenses()" [(ngModel)]="selectedOption" ngModel>
                     Revenue
                   </label>
                   <br>
                   <label class="fs-5 text-capitalize">
-                    <input type="radio" name="option" value="option2" class="me-2" (click)="cancelExpenses()">
+                    <input type="radio" name="option" value="savings" class="me-2" (click)="cancelExpenses()" [(ngModel)]="selectedOption" ngModel>
                     Savings
                   </label>
                   <br>
                   <label class="fs-5 text-capitalize">
-                    <input type="radio" name="option" value="option3" class="me-2" (click)="addExpenses()">
+                    <input type="radio" name="option" value="expenses" class="me-2" (click)="addExpenses()" [(ngModel)]="selectedOption" ngModel>
                     Expenses
                   </label>
                   @if (expenseDate==true) {
                     <div class="mt-3">
                       <label for="date" class="form-label">Due Date</label>
-                      <input type="date" class="form-control" id="date" placeholder="Enter date">
+                      <input type="date" class="form-control" id="date" placeholder="Enter date" [(ngModel)]="dueDate">
                     </div>
                   }
                   <br>
                   <div class=" d-flex justify-content-center mt-4">
                     <button class="btn bg-secondary text-white border-0 rounded-4 px-3 py-2 me-2"(click)="cancelTransaction()" >Cancel</button>
-                    <button class="btn buttnClr text-white border-0 rounded-4 px-3 py-2" >Add</button>
+                    <button class="btn buttnClr text-white border-0 rounded-4 px-3 py-2" (click)="addTransaction()" >Add</button>
                   </div>
                 </form>
               </div>

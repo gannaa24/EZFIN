@@ -22,7 +22,7 @@
 <section class="pt-5">
    <div class="d-flex justify-content-center align-items-center pt-3 mb-5">
     <div class="d-flex justify-content-center align-items-center flex-column bg-white py-3 rounded-4 w-50 shadow fs-3">
-        <p class="fw-semibold">240,399$</p>
+        <p class="fw-semibold">{{Revenue}}$</p>
         <p class="text-capitalize text-secondary">current balance</p>
     </div>
    </div>
@@ -37,7 +37,7 @@
                  <span class="ps-2">Total Revenues</span>
                 </div>
                 <div class="pe-4">
-                    <p>$500</p>
+                    <p>$50,000</p>
                 </div>
             </div>
             <div class="d-flex  justify-content-between align-items-baseline bg-white py-3 rounded-4 fs-5 pt-4 mt-4 shadow">
@@ -46,7 +46,7 @@
                  <span class="ps-2">Total Expenses</span>
                 </div>
                 <div class="pe-4">
-                    <p>$500</p>
+                    <p>$30,000</p>
                 </div>
             </div>
             <div class="d-flex  justify-content-between align-items-baseline bg-white py-3 rounded-4 shadow fs-5 pt-4 mt-4">
@@ -55,7 +55,7 @@
                  <span class="ps-2">Total Savings</span>
                 </div>
                 <div class="pe-4">
-                    <p>$500</p>
+                    <p>$12000</p>
                 </div>
             </div>
         </div>
@@ -68,12 +68,12 @@
         <div class="container m-auto bg-white rounded-3 shadow-sm p-5 mt-5">
           <div class="border-bottom py-2 mb-4">
             <p class="fw-bolder text-capitalize">Add  new capital Amount</p>
-            <input type="number" class="form-control" placeholder="Enter amount" aria-label="Amount (to the nearest dollar)">
+            <input type="number" class="form-control" [(ngModel)]="Revenue" placeholder="Enter amount" aria-label="Amount (to the nearest dollar)">
           </div>
           
           <div class=" d-flex justify-content-center mt-4">
             <button class="btn bg-secondary text-white border-0 rounded-4 px-3 py-2 me-2"(click)="cancelTransaction()" >Cancel</button>
-            <button class="btn buttnClr text-white border-0 rounded-4 px-3 py-2" >Add</button>
+            <button class="btn buttnClr text-white border-0 rounded-4 px-3 py-2" (click)="saveData(); cancelTransaction()" >Add</button>
           </div>
         </div>
       </div>

@@ -12,10 +12,13 @@ export class OverviewComponent {
 
   
   today: string = '';
+  myName = JSON.parse(localStorage.getItem("signupData") || '{}').name;
+  
+  
 
   ngOnInit(): void {
     this.updateDate();
-
+    console.log(this.myName);
     // Optional: auto-update every minute
     setInterval(() => {
       this.updateDate();

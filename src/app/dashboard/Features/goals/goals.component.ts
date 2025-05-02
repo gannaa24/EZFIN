@@ -1,10 +1,12 @@
 import { Component} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {ChartConfiguration, layouts} from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
+
 @Component({
   selector: 'app-goals',
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective ,FormsModule],
   templateUrl: './goals.component.html',
   styleUrl: './goals.component.css'
 })
@@ -43,7 +45,7 @@ export class GoalsComponent {
   // Doughnut
   public doughnutChartLabels: string[] = ['In progress','Target Achieved'];
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
-      { data: [ 350, 450],
+      { data: [ 6000, 12000],
         backgroundColor:['#999','#000066'],
        },
     ];

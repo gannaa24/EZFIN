@@ -9,7 +9,7 @@
                   
                   <div>
                      
-                    <button class="btn buttnClr text-white fs-5 text-capitalize" (click)="addTransaction()">Add new expense <i class="fa-solid fa-circle-plus"></i></button>
+                    <button class="btn buttnClr text-white fs-5 text-capitalize" (click)="newTransaction()">Add new expense <i class="fa-solid fa-circle-plus"></i></button>
                   </div>
               
                </div>
@@ -69,7 +69,7 @@
                         
 
                 </div>
-            </td>
+                </td>
 
                <div>
                 
@@ -83,7 +83,36 @@
                 <td class="text-center py-4">17 June ,2025</td>
                 <td class="text-center fw-bold py-4 h5">$559</td>
               </tr>
+              @for (item of expensesTransactions; track $index) {
 
+                <tr class="border-bottom border-black rounded">
+                  <td class="py-4">
+                      <div class="d-flex align-items-center justify-content-center">
+                          <div class="bg-body-secondary border rounded px-2">
+                              <p class="mb-0 text-secondary text-uppercase"> May</p> 
+                              <p class="fw-bold text-center mb-0">20</p>
+                              
+                          </div>
+  
+                          
+  
+                  </div>
+                  </td>
+  
+                 <div>
+                  
+                  <h5 class="text-center ps-3">{{expensesTransactions[$index].description}}</h5>
+                  <td class="d-flex justify-content-center align-items-center"> 
+                      <img src="https://th.bing.com/th/id/OIP.Kx7343" class="w-ad" alt="adobe">
+                      <p class="fs-6 small-line text-secondary pe-5">For advanced security and more <br>flexible controls, the professional <br>plan helps you scale design <br>
+                           processes company-wide</p>
+                  </td>
+                 </div>
+                  <td class="text-center py-4">17 June ,2025</td>
+                  <td class="text-center fw-bold py-4 h5">${{ expensesTransactions[$index].amount }}</td>
+                </tr>
+
+              }
 
 
               
@@ -104,19 +133,19 @@
         <div class="container m-auto bg-white rounded-3 shadow-sm p-5 mt-5">
           <div class="border-bottom py-2 mb-4">
             <p class="fw-bolder">Add New Expense</p>
-            <input type="number" class="form-control" placeholder="Enter amount" aria-label="Amount (to the nearest dollar)">
+            <input type="number" class="form-control" placeholder="Enter amount" aria-label="Amount (to the nearest dollar)" [(ngModel)]="amount" >
           </div>
           <div class="border-bottom py-2 mb-4">
             <p class="fw-bolder">Description</p>
-            <input type="text" class="form-control" placeholder="Enter Discription" aria-label="Amount (to the nearest dollar)">
+            <input type="text" class="form-control" placeholder="Enter Discription" aria-label="Amount (to the nearest dollar)" [(ngModel)]="description" >
           </div>
           <div class="mt-3">
             <label for="date" class="form-label">Due Date</label>
-            <input type="date" class="form-control" id="date" placeholder="Enter date">
+            <input type="date" class="form-control" id="date" placeholder="Enter date" [(ngModel)]="dueDate" >
           </div>
           <div class=" d-flex justify-content-center mt-4">
             <button class="btn bg-secondary text-white border-0 rounded-4 px-3 py-2 me-2"(click)="cancelTransaction()" >Cancel</button>
-            <button class="btn buttnClr text-white border-0 rounded-4 px-3 py-2" >Add</button>
+            <button class="btn buttnClr text-white border-0 rounded-4 px-3 py-2" (click)="addTransaction()" >Add</button>
           </div>
           </div>
         </div>
